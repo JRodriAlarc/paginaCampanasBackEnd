@@ -41,11 +41,9 @@ public class AuthController {
 
         Map<String, String> responseBody = new HashMap<>();
         responseBody.put("message", "User registered successfully");
-        responseBody.put("token", token); // Opcional, si quieres devolver el token en la respuesta
+        responseBody.put("token", token); // Devolver el token en la respuesta
 
         return ResponseEntity.ok(responseBody);
-
-//        return ResponseEntity.ok(authService.register(user));
 
     }
 
