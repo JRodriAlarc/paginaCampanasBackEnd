@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.awt.*;
 import java.util.List;
 
 @Setter
@@ -15,16 +16,17 @@ import java.util.List;
 public class BellFinish {
     @Id
     private String id;
-    @NotNull(message = "debe especificar el acabado")
+
+    @NotNull
     @NotBlank(message = "debe especificar el acabado")
     private String finish;
-    @NotNull(message = "debe especificar la descripción")
+    @NotNull
     @NotBlank(message = "debe especificar la descripción")
     private String description;
 
-    private List<String> images;
+    private List<Image> images;
 
-    public BellFinish(String id, String finish, String description, List<String> images) {
+    public BellFinish(String id, String finish, String description, List<Image> images) {
         this.id = id;
         this.finish = finish;
         this.description = description;

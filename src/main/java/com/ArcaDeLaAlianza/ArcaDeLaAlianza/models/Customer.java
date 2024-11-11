@@ -36,6 +36,5 @@ public class Customer {
         this.city = city;
         this.state = state;
     }
-
 }
 

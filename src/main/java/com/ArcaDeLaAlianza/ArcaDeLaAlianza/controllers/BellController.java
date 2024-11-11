@@ -4,13 +4,20 @@ import com.ArcaDeLaAlianza.ArcaDeLaAlianza.models.BellAlloy;
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.models.BellFinish;
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.models.BellWeightSize;
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.services.BellService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
+import jakarta.validation.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/bells")
@@ -18,6 +25,14 @@ import java.util.List;
 public class BellController {
     @Autowired
     private BellService bellService;
+
+    private final ObjectMapper objectMapper;
+    private final Validator validator;
+
+    public BellController(ObjectMapper objectMapper, Validator validator) {
+        this.objectMapper = objectMapper;
+        this.validator = validator;
+    }
 
 
     @GetMapping
@@ -79,21 +94,49 @@ public class BellController {
         return ResponseEntity.ok("Aleación eliminada correctamente.");
     }
 
-
 //    control de los acabados de campanas
     @GetMapping("/finish")
     public ResponseEntity<?> getBellFinishes(){
         return ResponseEntity.ok(bellService.getBellFinishes());
     }
 
-    @PostMapping("/finish")
-    public ResponseEntity<?> saveBellFinish(@Valid @RequestBody BellFinish bellFinish){
+
+    @PostMapping(value = "/finish", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<?> saveBellFinish(@RequestPart("files") MultipartFile[] files,
+                                             @RequestPart("bellFinish")  String finishJson) throws Exception {
         try {
-            return ResponseEntity.ok(bellService.saveBellFinish(bellFinish));
-        }catch(IllegalArgumentException e){
+            BellFinish bellFinish = objectMapper.readValue(finishJson, BellFinish.class);
+
+            Set<ConstraintViolation<BellFinish>> violations = validator.validate(bellFinish);
+            if (!violations.isEmpty()) {
+                throw new ConstraintViolationException(violations);
+            }
+             return ResponseEntity.ok(bellService.saveBellFinish(files, bellFinish));
+
+        }
+        catch(IllegalArgumentException e){
             return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
         }
     }
+
+    @PutMapping("/finish/{id}/img")
+    public ResponseEntity<?> addBellFinishImage(@PathVariable String id,
+                                               @RequestPart("files") MultipartFile[] files) throws Exception {
+        bellService.addBellFinishImg(id, files);
+        return ResponseEntity.ok("Imagenes agregadas correctamente.");
+    }
+
+    @PutMapping("/finish/{id}/img/{imgId}")
+    public ResponseEntity<?> deleteBellFinishImage(@PathVariable String id,
+                                                  @PathVariable String imgId){
+        bellService.deleteBellFinishImg(id, imgId);
+
+        return ResponseEntity.ok("Imagen eliminada correctamente.");
+    }
+
+
 
     @PutMapping("/finish/{id}")
     public ResponseEntity<?> updateBellFinish(@PathVariable String id,
@@ -103,8 +146,10 @@ public class BellController {
         return ResponseEntity.ok("Acabado actualizado correctamente.");
     }
 
+
     @DeleteMapping("/finish/{id}")
     public ResponseEntity<?> deleteBellFinish(@PathVariable String id){
+//        eliminar las imagenes tambien
         bellService.deleteBellFinish(id);
         return ResponseEntity.ok("Acabado eliminado correctamente.");
     }

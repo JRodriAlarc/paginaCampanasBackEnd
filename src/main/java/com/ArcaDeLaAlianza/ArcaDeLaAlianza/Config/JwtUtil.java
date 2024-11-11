@@ -33,7 +33,7 @@ public class JwtUtil {
     // Método para obtener el nombre de usuario desde el token JWT
     public String extractUsername(String token) {
         Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
-        return claims.getSubject(); // El sujeto es generalmente el nombre de usuario
+        return claims.getSubject(); // retorna nombre de usuario
     }
 
 }
