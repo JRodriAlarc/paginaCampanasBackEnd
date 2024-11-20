@@ -51,13 +51,9 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 
-//    @ExceptionHandler(HttpClientErrorException.NotFound.class)
-//    public ResponseEntity<Map<String, String>> handleIllegalArgumentException(HttpClientErrorException.NotFound ex) {
-//        Map<String, String> errorResponse = new HashMap<>();
-//        errorResponse.put("error", ex.getMessage());
-//        errorResponse.put("status", HttpStatus.BAD_REQUEST.toString()); // O puedes personalizar el estado según tu lógica
-//
-//        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
-//    }
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<String> handleRuntimeException(RuntimeException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
 
 }

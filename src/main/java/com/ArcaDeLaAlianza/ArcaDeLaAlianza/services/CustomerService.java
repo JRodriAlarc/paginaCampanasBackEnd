@@ -20,17 +20,7 @@ public class CustomerService {
         return customerRepository.findById(id).orElse(null);
     }
 
-    public Customer saveCustomer(CustomerDTO customerDTO){
-        TypeCustomer typeCustomer = TypeCustomer.POTENTIAL;
-        Customer customer = new Customer();
-        customer.setName(customerDTO.getName());
-        customer.setEmail(customerDTO.getEmail());
-        customer.setPhone(customerDTO.getPhone());
-        customer.setAddress(customerDTO.getAddress());
-        customer.setCity(customerDTO.getCity());
-        customer.setState(customerDTO.getState());
-        customer.setTypeCustomer(typeCustomer);
-
+    public Customer saveCustomer(Customer customer){
         return customerRepository.save(customer);
     }
     public void updateCustomer(Customer customer){

@@ -17,6 +17,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
+@CrossOrigin(origins = "http://localhost:5173")
 @Validated
 public class AuthController {
 
@@ -29,6 +30,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?>  login(@Valid @RequestBody AuthDTO authDTO) {
+        System.out.println(authDTO);
         String token = authService.login(authDTO);
 //        devolver datos del usuario y el token
         UserInfoDTO userInfo = authService.getUser(authDTO.getUsername(), token);

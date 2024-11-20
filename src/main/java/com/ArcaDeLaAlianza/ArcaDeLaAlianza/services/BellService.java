@@ -120,10 +120,13 @@ public class BellService {
 
     }
 
+
     public void deleteBellWeightSize(String id) {
         BellWeightSize bellWeightSize = bellWeightSizeRepository.findById(id).orElseThrow( () ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "peso no encontrada con id: " + id));
-        bellAlloyRepository.deleteById(id);
+        bellWeightSizeRepository.deleteById(id);
+
+
     }
 
 

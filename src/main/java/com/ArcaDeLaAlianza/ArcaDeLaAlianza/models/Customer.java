@@ -18,23 +18,19 @@ public class Customer {
     private String name;
     private String email;
     private String phone;
-    private  TypeCustomer typeCustomer;
-    private String address;
-    private String city;
-    private String state;
+    private String mailingAddress;
+
     public Customer() {
     }
 
     public Customer(String id, String name, String phone, String email,
-                    TypeCustomer typeCustomer, String address, String city, String state) {
+                    TypeCustomer typeCustomer, String mailingAddress) {
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.typeCustomer = typeCustomer;
-        this.address = address;
-        this.city = city;
-        this.state = state;
+        this.mailingAddress=mailingAddress;
+
     }
 }
 

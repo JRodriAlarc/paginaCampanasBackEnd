@@ -64,6 +64,12 @@ public class BellController {
         return ResponseEntity.ok("Aleación actualizada correctamente.");
     }
 
+    @DeleteMapping("/alloy/{id}")
+    public ResponseEntity<?> deleteBellAlloy(@PathVariable String id){
+        bellService.deleteBellAlloy(id);
+        return ResponseEntity.ok("Aleación eliminada correctamente.");
+    }
+
     //    Control de las aleaciones de campanas
     @GetMapping("/sizes")
     public ResponseEntity<?> getBellWeightSizes(){
@@ -88,11 +94,13 @@ public class BellController {
         return ResponseEntity.ok("Aleación actualizada correctamente.");
     }
 
-    @DeleteMapping("/alloy/{id}")
-    public ResponseEntity<?> deleteBellAlloy(@PathVariable String id){
-        bellService.deleteBellAlloy(id);
+    @DeleteMapping("/sizes/{id}")
+    public ResponseEntity<?> deleteBellWeightSize(@PathVariable String id){
+        bellService.deleteBellWeightSize(id);
         return ResponseEntity.ok("Aleación eliminada correctamente.");
     }
+
+
 
 //    control de los acabados de campanas
     @GetMapping("/finish")
@@ -102,8 +110,11 @@ public class BellController {
 
 
     @PostMapping(value = "/finish", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<?> saveBellFinish(@RequestPart("files") MultipartFile[] files,
+    public ResponseEntity<?> saveBellFinish(@RequestPart(value = "files", required = false) MultipartFile[] files,
                                              @RequestPart("bellFinish")  String finishJson) throws Exception {
+
+//        ver si la parte files no esta presente y solo se envia el json
+
         try {
             BellFinish bellFinish = objectMapper.readValue(finishJson, BellFinish.class);
 
@@ -111,6 +122,12 @@ public class BellController {
             if (!violations.isEmpty()) {
                 throw new ConstraintViolationException(violations);
             }
+            if (files == null){
+                MultipartFile[] emptyFiles = new MultipartFile[0];
+                return ResponseEntity.ok(bellService.saveBellFinish(emptyFiles, bellFinish));
+            }
+
+
              return ResponseEntity.ok(bellService.saveBellFinish(files, bellFinish));
 
         }
@@ -124,6 +141,7 @@ public class BellController {
     @PutMapping("/finish/{id}/img")
     public ResponseEntity<?> addBellFinishImage(@PathVariable String id,
                                                @RequestPart("files") MultipartFile[] files) throws Exception {
+
         bellService.addBellFinishImg(id, files);
         return ResponseEntity.ok("Imagenes agregadas correctamente.");
     }
