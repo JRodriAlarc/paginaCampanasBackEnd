@@ -11,7 +11,7 @@ public class CorsConfig {
     @Bean
     public UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfig = new CorsConfiguration();
-        corsConfig.addAllowedOrigin("http://localhost:5173");  // Reemplaza por tu origen de frontend
+        corsConfig.addAllowedOrigin("*");  // Reemplaza por tu origen de frontend
         corsConfig.addAllowedMethod("*");  // Permite todos los métodos HTTP
         corsConfig.addAllowedHeader("*");  // Permite todos los encabezados
         corsConfig.setAllowCredentials(true);  // Permite el uso de cookies o credenciales
