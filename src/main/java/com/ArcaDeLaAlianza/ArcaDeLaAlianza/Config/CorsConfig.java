@@ -12,6 +12,7 @@ public class CorsConfig {
     public UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfig = new CorsConfiguration();
         corsConfig.addAllowedOrigin("http://localhost:5173");
+        corsConfig.addAllowedOrigin("https://arcadelaalianzaserver.onrender.com");
         corsConfig.addAllowedMethod("*");
         corsConfig.addAllowedHeader("*");
         corsConfig.setAllowCredentials(true);
