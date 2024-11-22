@@ -1,19 +1,24 @@
 package com.ArcaDeLaAlianza.ArcaDeLaAlianza.controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.ArcaDeLaAlianza.ArcaDeLaAlianza.dto.WhatsAppDTO;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 @RestController
+@RequestMapping("/whatsapp")
 public class WhatsAppController {
-    @GetMapping("/generate-link")
-    public String generateWhatsAppLink(
-            @RequestParam String phone,
-            @RequestParam String message) {
-        // Formatear el mensaje para que sea URL-encoded
-        String formattedMessage = message.replace(" ", "%20");
 
-        // Construir el enlace
-        String link = "https://api.whatsapp.com/send?phone=" + phone + "&message=" + formattedMessage;
-        return link;
+    @PostMapping("/send")
+    public ResponseEntity<String> generateWhatsAppLink(@RequestBody WhatsAppDTO request) {
+        String phoneNumber = "527711980579"; // Número fijo o recibido del formulario
+        String message = request.getMessage(); // Mensaje desde el formulario
+
+        // Codificar mensaje para URL
+        String encodedMessage = URLEncoder.encode(message, StandardCharsets.UTF_8);
+        String whatsappLink = "https://api.whatsapp.com/send/?phone=" + phoneNumber + "&text=" + encodedMessage;
+
+        return ResponseEntity.ok(whatsappLink);
     }
 }
