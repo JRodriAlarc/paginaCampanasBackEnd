@@ -24,6 +24,7 @@ public class OrdersController {
     // Crear una nueva orden
     @PostMapping
     public ResponseEntity<Orders> createOrder(@Valid @RequestBody Orders order) {
+        System.out.println(order);
         Orders savedOrder = ordersService.createOrder(order);
         return new ResponseEntity<>(savedOrder, HttpStatus.CREATED);
     }

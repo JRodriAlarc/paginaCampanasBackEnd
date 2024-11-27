@@ -45,6 +45,7 @@ public class SecurityConfig {
                     http.requestMatchers(HttpMethod.POST, "/auth/login").permitAll();
                     http.requestMatchers(HttpMethod.POST, "/auth/register").permitAll();
                     http.requestMatchers(HttpMethod.GET, "/bells").permitAll();
+                    http.requestMatchers(HttpMethod.POST, "/orders").permitAll();
                     http.anyRequest().authenticated();
                 })
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
