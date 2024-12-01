@@ -4,9 +4,9 @@ import com.ArcaDeLaAlianza.ArcaDeLaAlianza.domain.CartItem;
 import java.util.List;
 
 public class CarritoWhatsAppDTO {
-    private String phoneNumber; // Número al que se enviará el mensaje
-    private List<CartItem> cartItems; // Lista de productos en el carrito
-    private Double total; // Total del carrito
+    private String phoneNumber;
+    private List<CartItem> cartItems;
+    private Double total;
 
     public String getPhoneNumber() {
         return phoneNumber;
