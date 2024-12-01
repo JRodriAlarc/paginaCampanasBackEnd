@@ -7,11 +7,11 @@ public class Product {
     private String id;
     private String name;
     private Double price;
-    private Double stock;
+    private Integer stock;
     private String description;
     private String image;
 
-    public Product(String id, String name, Double price, Double stock, String description, String image) {
+    public Product(String id, String name, Double price, Integer stock, String description, String image) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -44,11 +44,11 @@ public class Product {
         this.price = price;
     }
 
-    public Double getStock() {
+    public Integer getStock() {
         return stock;
     }
 
-    public void setStock(Double stock) {
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
 
