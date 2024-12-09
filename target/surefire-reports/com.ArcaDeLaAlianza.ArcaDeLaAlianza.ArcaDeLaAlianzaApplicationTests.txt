@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.ArcaDeLaAlianza.ArcaDeLaAlianza.ArcaDeLaAlianzaApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.307 s -- in com.ArcaDeLaAlianza.ArcaDeLaAlianza.ArcaDeLaAlianzaApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.080 s -- in com.ArcaDeLaAlianza.ArcaDeLaAlianza.ArcaDeLaAlianzaApplicationTests
