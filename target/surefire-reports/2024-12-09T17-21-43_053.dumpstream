@@ -1,4 +1,4 @@
-# Created at 2024-12-09T17:15:48.817
+# Created at 2024-12-09T17:21:43.288
 Boot Manifest-JAR contains absolute paths in classpath 'D:\cursos\spring boot\ProyectCampanas\paginaCampanasBackEnd\target\test-classes'
 Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
 'other' has different root
