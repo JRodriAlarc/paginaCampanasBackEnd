@@ -1,3 +1,48 @@
+<<<<<<< HEAD
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/ArcaDeLaAlianzaApplication.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/Config/AppConfig.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/Config/CorsConfig.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/Config/JwtRequestFilter.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/Config/JwtUtil.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/Config/SecurityConfig.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/controllers/AuthController.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/controllers/BellController.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/controllers/OrdersController.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/controllers/ProductController.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/controllers/customerController.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/dto/AuthDTO.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/dto/BellAlloyDTO.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/dto/BellCustomizationOptionsDTO.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/dto/CustomerDTO.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/dto/UserDTO.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/dto/UserInfoDTO.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/enums/OrderStatus.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/enums/Role.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/enums/TypeCustomer.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/exceptions/GlobalExceptionHandler.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/models/BellAlloy.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/models/BellFinish.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/models/BellWeightSize.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/models/Customer.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/models/Image.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/models/Orders.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/models/Product.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/models/User.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/repositories/BellAlloyRepository.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/repositories/BellFinishRepository.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/repositories/BellWeightSizeRepository.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/repositories/CustomerRepository.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/repositories/OrdersRepository.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/repositories/ProductRepository.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/repositories/UserRepository.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/services/AuthService.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/services/BellService.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/services/CustomerService.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/services/ImgBBService.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/services/OrdersService.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/services/ProductService.java
+/workspaces/paginaCampanasBackEnd/src/main/java/com/ArcaDeLaAlianza/ArcaDeLaAlianza/services/UserDetailsServiceImpl.java
+=======
 D:\cursos\spring boot\ProyectCampanas\paginaCampanasBackEnd\src\main\java\com\ArcaDeLaAlianza\ArcaDeLaAlianza\ArcaDeLaAlianzaApplication.java
 D:\cursos\spring boot\ProyectCampanas\paginaCampanasBackEnd\src\main\java\com\ArcaDeLaAlianza\ArcaDeLaAlianza\Config\AppConfig.java
 D:\cursos\spring boot\ProyectCampanas\paginaCampanasBackEnd\src\main\java\com\ArcaDeLaAlianza\ArcaDeLaAlianza\Config\CorsConfig.java
@@ -46,3 +91,4 @@ D:\cursos\spring boot\ProyectCampanas\paginaCampanasBackEnd\src\main\java\com\Ar
 D:\cursos\spring boot\ProyectCampanas\paginaCampanasBackEnd\src\main\java\com\ArcaDeLaAlianza\ArcaDeLaAlianza\services\ProductOrdersService.java
 D:\cursos\spring boot\ProyectCampanas\paginaCampanasBackEnd\src\main\java\com\ArcaDeLaAlianza\ArcaDeLaAlianza\services\ProductService.java
 D:\cursos\spring boot\ProyectCampanas\paginaCampanasBackEnd\src\main\java\com\ArcaDeLaAlianza\ArcaDeLaAlianza\services\UserDetailsServiceImpl.java
+>>>>>>> cb1a27f551e6da4d9881dedbc294adb18b37d688

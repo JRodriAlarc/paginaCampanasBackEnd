@@ -140,6 +140,11 @@ public class BellService {
                 .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "no encontrado"));
     }
 
+    public BellWeightSize saveBellAcabado(BellFinish bellfinish) {
+        return bellFinishRepository.save(bellfinish);
+    }
+
+
 //    guardar los acabados, ademas de subir las imagenes que traen consigo
     public Object saveBellFinish(MultipartFile[] files , BellFinish bellFinish)
             throws Exception {

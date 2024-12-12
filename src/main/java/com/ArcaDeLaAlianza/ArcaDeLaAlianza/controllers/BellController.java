@@ -108,6 +108,16 @@ public class BellController {
         return ResponseEntity.ok(bellService.getBellFinishes());
     }
 
+    @PostMapping("/acabado")
+    public ResponseEntity<?> saveBellAcabado(@Valid @RequestBody BellFinish bellFinish){
+        try {
+            return ResponseEntity.ok(bellService.saveBellAcabado(bellFinish));
+        }catch(IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+
+    }
+
 
     @PostMapping(value = "/finish", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> saveBellFinish(@RequestPart(value = "files", required = false) MultipartFile[] files,
