@@ -2,6 +2,7 @@ package com.ArcaDeLaAlianza.ArcaDeLaAlianza.controllers;
 
 
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.models.BellFinish;
+import com.ArcaDeLaAlianza.ArcaDeLaAlianza.models.Orders;
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.models.Product;
 
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.services.ProductService;
@@ -13,6 +14,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -47,30 +49,34 @@ public class ProductController {
         return ResponseEntity.ok(productService.getProductById(id));
     }
 
-
-
-    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<?> saveProduct(@RequestPart("image") MultipartFile image,
-                                              @RequestPart("product")  String productJson)
-            throws Exception {
-
-        try {
-            Product product = objectMapper.readValue(productJson, Product.class);
-
-            Set<ConstraintViolation<Product>> violations = validator.validate(product);
-            if (!violations.isEmpty()) {
-                throw new ConstraintViolationException(violations);
-            }
-            return ResponseEntity.ok(productService.saveProduct(image, product));
-
-        }
-        catch(IllegalArgumentException e){
-            return ResponseEntity.badRequest().body(e.getMessage());
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-
+    @PostMapping
+    public ResponseEntity<?>  saveProduct(@Valid @RequestBody Product product) {
+        Product savedOrder = productService.saveProduct(product);
+        return new ResponseEntity<>(savedOrder, HttpStatus.CREATED);
     }
+
+    // @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    // public ResponseEntity<?> saveProduct(@RequestPart("image") MultipartFile image,
+    //                                           @RequestPart("product")  String productJson)
+    //         throws Exception {
+
+    //     try {
+    //         Product product = objectMapper.readValue(productJson, Product.class);
+
+    //         Set<ConstraintViolation<Product>> violations = validator.validate(product);
+    //         if (!violations.isEmpty()) {
+    //             throw new ConstraintViolationException(violations);
+    //         }
+    //         return ResponseEntity.ok(productService.saveProduct(image, product));
+
+    //     }
+    //     catch(IllegalArgumentException e){
+    //         return ResponseEntity.badRequest().body(e.getMessage());
+    //     } catch (JsonProcessingException e) {
+    //         throw new RuntimeException(e);
+    //     }
+
+    // }
 
 
     @DeleteMapping("/{id}")

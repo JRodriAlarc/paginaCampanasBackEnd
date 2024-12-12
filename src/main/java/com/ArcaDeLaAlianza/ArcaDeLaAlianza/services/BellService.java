@@ -140,7 +140,7 @@ public class BellService {
                 .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "no encontrado"));
     }
 
-    public BellWeightSize saveBellAcabado(BellFinish bellfinish) {
+    public BellFinish saveBellAcabado(BellFinish bellfinish) {
         return bellFinishRepository.save(bellfinish);
     }
 
