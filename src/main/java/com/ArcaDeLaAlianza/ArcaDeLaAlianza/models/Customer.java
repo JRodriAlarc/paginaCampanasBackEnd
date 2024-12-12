@@ -2,7 +2,6 @@ package com.ArcaDeLaAlianza.ArcaDeLaAlianza.models;
 
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.enums.TypeCustomer;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;

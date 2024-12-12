@@ -1,8 +1,6 @@
 package com.ArcaDeLaAlianza.ArcaDeLaAlianza.services;
 
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.enums.OrderStatus;
-import com.ArcaDeLaAlianza.ArcaDeLaAlianza.models.Customer;
-import com.ArcaDeLaAlianza.ArcaDeLaAlianza.models.Orders;
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.models.ProductOrders;
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.repositories.ProductOrdersRepository;
 import org.springframework.beans.factory.annotation.Autowired;

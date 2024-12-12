@@ -1,6 +1,5 @@
 package com.ArcaDeLaAlianza.ArcaDeLaAlianza.controllers;
 
-import com.ArcaDeLaAlianza.ArcaDeLaAlianza.dto.CustomerDTO;
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.models.Customer;
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;

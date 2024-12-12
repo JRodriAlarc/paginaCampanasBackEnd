@@ -1,6 +1,5 @@
 package com.ArcaDeLaAlianza.ArcaDeLaAlianza.models;
 
-
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -8,7 +7,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.format.annotation.NumberFormat;
 
 @Setter
 @Getter

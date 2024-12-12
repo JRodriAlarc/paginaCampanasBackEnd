@@ -1,18 +1,13 @@
 package com.ArcaDeLaAlianza.ArcaDeLaAlianza.controllers;
 
-
-import com.ArcaDeLaAlianza.ArcaDeLaAlianza.models.BellFinish;
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.models.Product;
-
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.services.ProductService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
-import jakarta.validation.Valid;
 import jakarta.validation.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;

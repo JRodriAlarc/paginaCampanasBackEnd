@@ -1,6 +1,4 @@
 package com.ArcaDeLaAlianza.ArcaDeLaAlianza.services;
-import com.ArcaDeLaAlianza.ArcaDeLaAlianza.dto.CustomerDTO;
-import com.ArcaDeLaAlianza.ArcaDeLaAlianza.enums.TypeCustomer;
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.models.Customer;
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,5 @@
 package com.ArcaDeLaAlianza.ArcaDeLaAlianza.dto;
 
-import com.ArcaDeLaAlianza.ArcaDeLaAlianza.enums.TypeCustomer;
 import lombok.Getter;
 import lombok.Setter;
 
