@@ -14,6 +14,7 @@ public class CorsConfig {
         corsConfig.addAllowedOrigin("http://localhost:5173");
         corsConfig.addAllowedOrigin("https://ventadecampanasarcadelaalianza.onrender.com");
         corsConfig.addAllowedOrigin("https://arcadelaalianzaserver.onrender.com");
+        corsConfig.addAllowedOrigin("https://arcadelaalianza-production.up.railway.app");
         corsConfig.addAllowedMethod("*");
         corsConfig.addAllowedHeader("*");
         corsConfig.setAllowCredentials(true);

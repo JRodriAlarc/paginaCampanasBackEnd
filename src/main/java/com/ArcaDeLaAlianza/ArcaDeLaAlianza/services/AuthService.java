@@ -1,6 +1,5 @@
 package com.ArcaDeLaAlianza.ArcaDeLaAlianza.services;
 
-
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.Config.JwtUtil;
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.dto.AuthDTO;
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.dto.UserDTO;
@@ -20,7 +19,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.Optional;
 
 @Service
