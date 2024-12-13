@@ -4,7 +4,6 @@ com\ArcaDeLaAlianza\ArcaDeLaAlianza\models\Product.class
 com\ArcaDeLaAlianza\ArcaDeLaAlianza\services\AuthService.class
 com\ArcaDeLaAlianza\ArcaDeLaAlianza\dto\BellCustomizationOptionsDTO.class
 com\ArcaDeLaAlianza\ArcaDeLaAlianza\repositories\CustomerRepository.class
-com\ArcaDeLaAlianza\ArcaDeLaAlianza\models\ProductImg.class
 com\ArcaDeLaAlianza\ArcaDeLaAlianza\dto\UserInfoDTO.class
 com\ArcaDeLaAlianza\ArcaDeLaAlianza\Config\JwtRequestFilter.class
 com\ArcaDeLaAlianza\ArcaDeLaAlianza\services\ImgBBService$1.class

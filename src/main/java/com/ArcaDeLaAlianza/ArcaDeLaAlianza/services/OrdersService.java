@@ -1,5 +1,6 @@
 package com.ArcaDeLaAlianza.ArcaDeLaAlianza.services;
 
+import com.ArcaDeLaAlianza.ArcaDeLaAlianza.enums.OrderStatus;
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.models.Orders;
 import com.ArcaDeLaAlianza.ArcaDeLaAlianza.repositories.OrdersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrdersService {
@@ -21,9 +23,8 @@ public class OrdersService {
 
     // Obtener una orden por ID
     public Orders getOrderById(String orderId) {
-        return ordersRepository.findById(orderId).orElseThrow( () ->
-                new ResponseStatusException(HttpStatus.NOT_FOUND, "producto no encontrrado con id: " + orderId)
-        );
+        return ordersRepository.findById(orderId).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "producto no encontrrado con id: " + orderId));
     }
 
     // Obtener todas las órdenes
@@ -31,40 +32,56 @@ public class OrdersService {
         return ordersRepository.findAll();
     }
 
-//    // Actualizar una orden existente
-//    public Orders updateOrder(String orderId, Orders updatedOrder) {
-//        // Primero buscar si la orden existe
-//        return ordersRepository.findById(orderId).map(order -> {
-//            // Actualizamos los campos con los valores del objeto actualizado
-//            order.setCustomer(updatedOrder.getCustomer());
-//            order.setProductType(updatedOrder.getProductType());
-//            order.setAlloy(updatedOrder.getAlloy());
-//            order.setFinish(updatedOrder.getFinish());
-//            order.setWeightSize(updatedOrder.getWeightSize());
-//            order.setQuantity(updatedOrder.getQuantity());
-//            order.setStatus(updatedOrder.getStatus());
-//            order.setTotalPrice(updatedOrder.getTotalPrice());
-//            order.setNotes(updatedOrder.getNotes());
-//            return ordersRepository.save(order);
-//        }).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "producto no encontrrado con id: " + orderId));
-//    }
+    // // Actualizar una orden existente
+    // public Orders updateOrder(String orderId, Orders updatedOrder) {
+    // // Primero buscar si la orden existe
+    // return ordersRepository.findById(orderId).map(order -> {
+    // // Actualizamos los campos con los valores del objeto actualizado
+    // order.setCustomer(updatedOrder.getCustomer());
+    // order.setProductType(updatedOrder.getProductType());
+    // order.setAlloy(updatedOrder.getAlloy());
+    // order.setFinish(updatedOrder.getFinish());
+    // order.setWeightSize(updatedOrder.getWeightSize());
+    // order.setQuantity(updatedOrder.getQuantity());
+    // order.setStatus(updatedOrder.getStatus());
+    // order.setTotalPrice(updatedOrder.getTotalPrice());
+    // order.setNotes(updatedOrder.getNotes());
+    // return ordersRepository.save(order);
+    // }).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,
+    // "producto no encontrrado con id: " + orderId));
+    // }
 
     // Eliminar una orden por ID
     public void deleteOrder(String orderId) {
         if (ordersRepository.existsById(orderId)) {
             ordersRepository.deleteById(orderId);
         } else {
-           throw  new ResponseStatusException(HttpStatus.NOT_FOUND, "producto no encontrrado con id: " + orderId);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "producto no encontrrado con id: " + orderId);
         }
     }
 
+    public Orders finalizeOrder(String orderId) {
+        // Buscar el pedido por ID
+        Optional<Orders> optionalOrder = ordersRepository.findById(orderId);
+
+        if (optionalOrder.isPresent()) {
+            Orders order = optionalOrder.get();
+            // Actualizar el estado a FINALIZADO
+            order.setStatus(OrderStatus.FINALIZADO);
+            // Guardar el pedido actualizado
+            return ordersRepository.save(order);
+        } else {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Order not found with ID: " + orderId);
+        }
+    }
 
     public List<Orders> getOrdersByStatus(String status) {
         List<Orders> orders = ordersRepository.getOrdersByStatus(status);
 
         if (orders.isEmpty()) {
-           throw  new ResponseStatusException(
-                   HttpStatus.NOT_FOUND, "no se encontraron ordenes con el estado: " + status);
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "no se encontraron ordenes con el estado: " + status);
         }
         return orders;
     }

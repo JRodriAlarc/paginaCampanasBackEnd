@@ -63,6 +63,17 @@ public class OrdersController {
         }
     }
 
+     @PutMapping("/{orderId}/finalize")
+    public ResponseEntity<Orders> finalizeOrder(@PathVariable String orderId) {
+        try {
+            // Finalizar el pedido
+            Orders finalizedOrder = ordersService.finalizeOrder(orderId);
+            return ResponseEntity.ok(finalizedOrder);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     // Obtener órdenes por estado
     @GetMapping("/status/{status}")
     public ResponseEntity<List<Orders>> getOrdersByStatus(@PathVariable String status) {
